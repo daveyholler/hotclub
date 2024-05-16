@@ -5,6 +5,8 @@ interface HotClubContextType {
   setHotClub: (value: string) => void;
   rootShouldRenderEmptyState: boolean;
   toggleRootShouldRenderEmptyState: () => void;
+  mode: "serverless" | "stack" | string;
+  toggleMode?: (mode: "serverless" | "stack") => void;
 }
 
 const defaultHotClubContext = {
@@ -12,6 +14,8 @@ const defaultHotClubContext = {
   setHotClub: () => {},
   rootShouldRenderEmptyState: false,
   toggleRootShouldRenderEmptyState: () => {},
+  mode: "stack",
+  toggleMode: () => {},
 };
 
 export const HotClubContext = createContext<HotClubContextType>(
@@ -22,12 +26,17 @@ export const HotClubProvider = ({ children }: any) => {
   const [hotClub, setHotClub] = useState("Hot Club");
   const [rootShouldRenderEmptyState, setRootShouldRenderEmptyState] =
     useState(false);
+  const [mode, setMode] = useState<"serverless" | "stack">("stack");
 
   console.log("Hot Club Provider", HotClubContext);
 
   const toggleRootShouldRenderEmptyState = () => {
     console.log("Toggling root empty state");
     setRootShouldRenderEmptyState((prev) => !prev);
+  };
+
+  const toggleMode = (mode: "serverless" | "stack") => {
+    setMode(mode);
   };
 
   return (
@@ -37,6 +46,8 @@ export const HotClubProvider = ({ children }: any) => {
         setHotClub,
         rootShouldRenderEmptyState,
         toggleRootShouldRenderEmptyState,
+        mode,
+        toggleMode,
       }}
     >
       {children}

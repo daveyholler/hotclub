@@ -19,10 +19,13 @@ const App = () => {
 };
 
 const AppInner = () => {
-  const [mode, setMode] = useState<"stack" | "serverless">("serverless");
   const location = useLocation();
-  const { toggleRootShouldRenderEmptyState, rootShouldRenderEmptyState } =
-    useContext(HotClubContext);
+  const {
+    toggleRootShouldRenderEmptyState,
+    rootShouldRenderEmptyState,
+    mode,
+    toggleMode,
+  } = useContext(HotClubContext);
 
   return (
     <div>
@@ -43,9 +46,10 @@ const AppInner = () => {
         Controls{": "}
         <button
           className="hotClubButton"
-          onClick={() =>
-            setMode(mode === "serverless" ? "stack" : "serverless")
-          }
+          onClick={() => console.log("clicked")}
+          // onClick={() =>
+          //   toggleMode(mode === "serverless" ? "stack" : "serverless")
+          // }
         >
           {mode === "serverless" ? "View stack" : "View serverless"}
         </button>
@@ -56,7 +60,7 @@ const AppInner = () => {
           Toggle Global Empty State: {rootShouldRenderEmptyState ? "On" : "Off"}
         </button>
       </div>
-      <RootLayout mode={mode}>
+      <RootLayout>
         {location.pathname === "/" ? <HomeView /> : <Outlet />}
       </RootLayout>
     </div>

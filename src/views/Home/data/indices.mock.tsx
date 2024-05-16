@@ -7,7 +7,7 @@ export const MOCK_INDICES = [
       <IndexListItemMetrics
         items={[
           { label: "1k", iconType: "document" },
-          { label: "23", iconType: "warning" },
+          { label: "Search", iconType: "search" },
         ]}
         health="danger"
       />

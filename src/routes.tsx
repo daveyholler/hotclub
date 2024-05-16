@@ -3,6 +3,7 @@ import App from "./App";
 import ConnectorsView from "./views/Connectors/page";
 import { IndexSample } from "./views/Indices/indexSample";
 import { IndicesLayout } from "./views/Indices/layout";
+import { InferenceEndpoints } from "./views/InferenceEndpoints/inferenceEndpoints";
 
 const Test = ({ title }: any) => {
   const { id } = useParams();
@@ -70,7 +71,7 @@ export const Routes = createBrowserRouter([
         children: [
           {
             path: "inference-endpoints",
-            element: <Test title="Inference Endpoints" />,
+            element: <InferenceEndpoints />,
           },
           {
             path: "query-rules",

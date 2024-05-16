@@ -42,23 +42,23 @@ export const MOCK_METRICS: MetricProps[] = [
     ],
   },
   {
-    description: "Machine Learning",
+    description: "Inference Endpoints",
     icon: "compute",
-    emptyStateCTALabel: "Add an ML node",
+    emptyStateCTALabel: "Add an Inference Endpoint",
     emptyStateMessage:
-      "Add a machine learning node to configure trained models.",
+      "Add an inference endpoint to start working with vector and semantic search",
     metrics: [
       {
-        title: "CPU",
-        value: "63%",
+        title: "Endpoints",
+        value: "3",
+      },
+      {
+        title: "Models",
+        value: "2",
       },
       {
         title: "Memory",
         value: "3.2gb",
-      },
-      {
-        title: "Health",
-        value: <EuiHealth color="success"> Healthy</EuiHealth>,
       },
     ],
   },
@@ -68,7 +68,7 @@ export const MOCK_METRICS_EMPTY: MetricProps[] = [
   {
     description: "Documents",
     icon: "documents",
-    emptyStateCTALabel: "Add documents",
+    emptyStateCTALabel: "Add data",
     emptyStateMessage: "Create your first index to start adding documents.",
     metrics: [
       {
@@ -108,9 +108,9 @@ export const MOCK_METRICS_EMPTY: MetricProps[] = [
   {
     description: "Machine Learning",
     icon: "compute",
-    emptyStateCTALabel: "Add an ML node",
+    emptyStateCTALabel: "Set up inference",
     emptyStateMessage:
-      "Add a machine learning node to configure trained models.",
+      "Add an inference endpoint to start working with vector and semantic search.",
     metrics: [
       {
         title: "CPU",

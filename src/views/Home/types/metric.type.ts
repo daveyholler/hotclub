@@ -4,7 +4,7 @@ export type MetricProps = {
   emptyStateCTALabel: string;
   emptyStateMessage: string;
   metrics: {
-    value: string | React.ReactNode | JSX.Element;
+    value: string | React.ReactNode;
     title: string;
   }[];
 };

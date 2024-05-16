@@ -8,7 +8,6 @@ import {
   EuiListGroupItem,
   EuiPanel,
   EuiSpacer,
-  EuiSwitch,
   EuiText,
   EuiTitle,
   useEuiTheme,
@@ -48,15 +47,6 @@ export const IndexList = () => {
             <EuiText>Indices</EuiText>
           </EuiTitle>
         </EuiFlexItem>
-        <EuiFlexItem grow={false}>
-          <EuiSwitch
-            compressed
-            color="primary"
-            label="Show system indices"
-            checked={showSystemIndices}
-            onChange={() => setShowSystemIndices(!showSystemIndices)}
-          />
-        </EuiFlexItem>
       </EuiFlexGroup>
       <EuiSpacer size="l" />
       {renderEmptyState ? (
@@ -79,7 +69,7 @@ export const IndexList = () => {
             Create your first index to start searching your data in Elastic
           </EuiText>
           <EuiButton fill color="primary" iconType="plusInCircleFilled">
-            Create an index
+            Add data
           </EuiButton>
           <EuiSpacer size="xs" />
         </EuiFlexGroup>
@@ -87,12 +77,14 @@ export const IndexList = () => {
         <>
           <EuiFlexItem>
             <EuiFieldText
+              fullWidth
               value={filterTerm}
               onChange={(e: any) => setFilterTerm(e.target.value)}
               placeholder="Search indices"
             />
           </EuiFlexItem>
-          <EuiListGroup flush style={{ width: "100%" }}>
+          <EuiSpacer size="s" />
+          <EuiListGroup flush style={{ minWidth: "100%" }}>
             {indices.map((item, index) => (
               <EuiListGroupItem
                 className="override"
@@ -121,7 +113,7 @@ export const IndexList = () => {
             color="primary"
             iconType="plusInCircleFilled"
           >
-            Create an index
+            Add data
           </EuiButton>
         </>
       )}

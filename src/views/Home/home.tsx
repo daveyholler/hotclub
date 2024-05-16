@@ -6,6 +6,7 @@ import {
   EuiFlexGrid,
   EuiFlexGroup,
   EuiFlexItem,
+  EuiHorizontalRule,
   EuiIcon,
   EuiListGroup,
   EuiListGroupItem,
@@ -51,7 +52,7 @@ export const HomeView = () => {
                   iconType="arrowDown"
                   iconSide="right"
                 >
-                  Create
+                  Add new
                 </EuiButton>
               }
             >
@@ -59,17 +60,17 @@ export const HomeView = () => {
                 <EuiListGroupItem
                   onClick={() => handlePopoverItemClick("Index")}
                   iconType="database"
-                  label="Create an index"
+                  label="Add new index"
                 />
                 <EuiListGroupItem
                   onClick={() => handlePopoverItemClick("Connector")}
                   iconType="logstashInput"
-                  label="Create a connector"
+                  label="Add new connector"
                 />
                 <EuiListGroupItem
                   onClick={() => handlePopoverItemClick("Web Crawler")}
                   iconType="globe"
-                  label="Create a web crawler"
+                  label="Add new web crawler"
                 />
               </EuiListGroup>
             </EuiPopover>
@@ -79,10 +80,19 @@ export const HomeView = () => {
       <EuiFlexItem style={{ width: "100%" }}>
         <MetricHeader />
       </EuiFlexItem>
-      <EuiFlexItem>
-        <EuiButtonEmpty iconType="console" color="primary">
-          Quickly get started in Console
-        </EuiButtonEmpty>
+      <EuiFlexItem style={{ width: "100%" }}>
+        <EuiFlexGroup justifyContent="spaceBetween">
+          <EuiFlexItem grow={false}>
+            <EuiButtonEmpty iconType="console" color="primary">
+              Quickly get started in Console
+            </EuiButtonEmpty>
+          </EuiFlexItem>
+          <EuiFlexItem grow={false}>
+            <EuiButtonEmpty iconType="endpoint" color="primary">
+              Endpoints and API keys
+            </EuiButtonEmpty>
+          </EuiFlexItem>
+        </EuiFlexGroup>
       </EuiFlexItem>
       <EuiFlexItem style={{ width: "100%" }}>
         <EuiFlexGroup direction="row">
@@ -90,13 +100,36 @@ export const HomeView = () => {
             <IndexList />
           </EuiFlexItem>
           <EuiFlexItem grow={2}>
-            <EuiPanel hasBorder>
-              <EuiTitle size="xs">
-                <EuiText>Do more with Search</EuiText>
+            <EuiPanel hasShadow paddingSize="l">
+              <EuiTitle size="s">
+                <EuiText>More ways to add data</EuiText>
               </EuiTitle>
-              <EuiSpacer size="l" />
+              <EuiSpacer size="m" />
               <EuiFlexGrid columns={2} gutterSize="l">
-                {MOCK_MORE_TO_DO.map((item, index) => (
+                {MOCK_MORE_TO_DO.ingest.map((item, index) => (
+                  <EuiFlexItem>
+                    <EuiCard
+                      className="override"
+                      display="subdued"
+                      layout="horizontal"
+                      icon={
+                        <EuiIcon color="subdued" size="l" type={item.icon} />
+                      }
+                      title={item.title}
+                      titleSize="xs"
+                      description={item.description}
+                      onClick={() => alert(item._instructions)}
+                    />
+                  </EuiFlexItem>
+                ))}
+              </EuiFlexGrid>
+              <EuiHorizontalRule />
+              <EuiTitle size="s">
+                <EuiText>More ways to search</EuiText>
+              </EuiTitle>
+              <EuiSpacer size="m" />
+              <EuiFlexGrid columns={2} gutterSize="l">
+                {MOCK_MORE_TO_DO.search.map((item, index) => (
                   <EuiFlexItem>
                     <EuiCard
                       display="subdued"
