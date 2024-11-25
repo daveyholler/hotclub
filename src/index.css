@@ -1,0 +1,7 @@
+button.euiListGroupItem__button {
+  display: block;
+}
+
+button.euiButton.listButton > span {
+  justify-content: flex-start;
+}

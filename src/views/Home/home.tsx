@@ -9,6 +9,11 @@ import {
 } from "@elastic/eui";
 import { useNavigate } from "react-router-dom";
 
+import { RecentIndexes } from "./RecentIndexes";
+import { ConnectionDetails } from "./ConnectionDetails";
+import { AddData } from "./AddData";
+import { EmbeddedConsole } from "./EmbeddedConsole";
+
 const GetStartedPanel = ({
   heading,
   description,
@@ -37,39 +42,34 @@ const GetStartedPanel = ({
 };
 
 export const HomeView = () => {
-  console.log("HomeView");
   return (
-    <>
-      <EuiFlexGroup direction="column">
-        <EuiFlexItem>
-          <EuiTitle size="s">
-            <h3>Ingest your content</h3>
-          </EuiTitle>
-        </EuiFlexItem>
-        <EuiFlexGroup>
+    <EuiFlexGroup direction="column" style={{ maxWidth: '1280px', margin: 'auto' }}>
+      <EuiFlexItem>
+        <EuiTitle size="l">
+          <h1>Welcome to Search</h1>
+        </EuiTitle>
+        <EuiText color={"subdued"}>
+          <p>Let's jump back in</p>
+        </EuiText>
+      </EuiFlexItem>
+      <EuiFlexItem>
+        <EuiFlexGroup direction="row">
           <EuiFlexItem>
-            <GetStartedPanel
-              heading="API"
-              description="Add documents programmatically by connecting with the API using your preferred language client."
-              slug="./content/api-index/overview"
-            />
+            <RecentIndexes />
           </EuiFlexItem>
           <EuiFlexItem>
-            <GetStartedPanel
-              heading="Connectors"
-              description="Extract, transform, index and sync data from a third-party data source."
-              slug="./content/connectors/overview"
-            />
+            <ConnectionDetails />
           </EuiFlexItem>
           <EuiFlexItem>
-            <GetStartedPanel
-              heading="Web Crawlers"
-              description="Discover, extract, and index searchable content from websites and knowledge bases."
-              slug="./content/crawlers/overview"
-            />
+            <AddData />
           </EuiFlexItem>
         </EuiFlexGroup>
+      </EuiFlexItem>
+      <EuiFlexGroup>
+        <EuiFlexItem>
+          <EmbeddedConsole />
+        </EuiFlexItem>
       </EuiFlexGroup>
-    </>
+    </EuiFlexGroup>
   );
 };
